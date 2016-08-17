@@ -1,0 +1,124 @@
+<link rel="import" href="../../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../../bower_components/koa-behaviors/koa-button-behavior.html">
+<link rel="import" href="../../styles/default-theme.html">
+
+<dom-module id="click-button">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+        position: relative;
+        box-sizing: border-box;
+        margin: 0 0.29em;
+        color: var(--primary-text-color);
+        font: inherit;
+        text-transform: capitalize;
+        outline-width: 0;
+        border-radius: 3px;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        z-index: 0;        
+        transition: background .3s, opacity .3s;
+        @apply(--button);
+      }
+
+      :host(:not([link])){
+        background: -webkit-linear-gradient(right, var(--dark-accent-color) , var(--light-accent-color));
+        background: linear-gradient(to right, var(--dark-accent-color) , var(--light-accent-color));
+        text-align: center;
+        min-width: 5.14em;
+        padding: 0.7em 2.5em;
+      }
+
+      :host([disabled]) {
+        background-color: var(--light-accent-color);
+        color: var(--primary-text-color);
+        opacity: .5;
+        cursor: auto;
+        pointer-events: none;
+
+        @apply(--button-disabled);
+      }
+
+      :host(:not([link])[pressed]) {
+        background: -webkit-linear-gradient(right, var(--button-background-color-pressed, --dark-accent-color), var(--dark-accent-color));
+        background: linear-gradient(to right, var(--button-background-color-pressed, --dark-accent-color), var(--dark-accent-color));
+        opacity: .5;
+      }
+
+      :host(:not([link]):not([disabled])) {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                    0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      }
+      
+      :host([link]) {
+        -webkit-backface-visibility:hidden;
+          backface-visibility:hidden;
+        position:relative;
+        transition:0.5s color ease;
+        color: var(--light-accent-color);
+      }
+
+      :host([link]:after){
+        content: "";
+        transition:0.5s all ease;
+        -webkit-backface-visibility:hidden;
+                backface-visibility:hidden;
+        position:absolute;
+        bottom:-0.2em;
+        height:2px;
+        width:0;
+        background: var(--dark-accent-color);
+        left: 0;
+      }
+      
+      :host([link][pressed]) {
+        color: var(--dark-accent-color);
+      }
+
+      :host([link][pressed]:after){
+        width: 100%;
+      }
+
+      :host([big]) {
+        font-size: 1.2em;
+      }
+
+      :host(:not([big]):not([link]).keyboard-focus) {
+        font-weight: normal;
+
+        @apply(--button-keyboard-focus);
+      }
+
+      :host([big].keyboard-focus) {
+        font-weight: normal;
+
+        @apply(--button-big-keyboard-focus);
+      }
+
+      :host([link].keyboard-focus) {
+        font-weight: normal;
+
+        @apply(--button-link-keyboard-focus);
+      }
+    </style>
+
+    <!-- write your template here -->
+    <content></content>
+    <!-- end template -->
+  </template>
+
+  <script>
+    Polymer({
+      is: 'click-button',
+
+      behaviors: [
+        Polymer.KoaButtonBehavior
+      ]
+    });
+  </script>
+</dom-module>

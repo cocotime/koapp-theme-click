@@ -1,0 +1,44 @@
+<style is="custom-style">
+  /*
+   Polymer includes a shim for CSS Custom Properties that we can use for application theming.
+   See https://www.polymer-project.org/1.0/docs/devguide/styling.html#xscope-styling-details
+   for further information on custom CSS properties.
+   */
+
+  /* General styles */
+
+  :root {
+    --primary-text-color: #ffffff;
+    --primary-background-color: #1d1d1d;
+    --secondary-text-color: #737373;
+    --disabled-text-color: #9b9b9b;
+    --divider-color: #dbdbdb;
+    --primary-color: #2f2f2f;
+    --light-primary-color: #525252;
+    --dark-primary-color: #525252;
+    --accent-color: #ef4949;
+    --light-accent-color: #01f5fd;
+    --dark-accent-color: #01c4ca;
+    --error-color: #dd2c00;
+
+    --background-color: #2f2f2f;
+    --background-image: none;
+
+    --primary-font-family: 'Open Sans';
+    --title-font-family: 'Roboto';
+  }
+  
+  body {
+    background-color: var(--primary-color);
+  }
+
+  .polymermenu .panel #header:not([style-scope]):not(.style-scope){
+    background-color: var(--primary-background-color);
+    border-bottom: 1px solid var(--primar-text-color);
+  }
+
+  .panel[drawer]{
+    box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.8);
+  }
+
+</style>

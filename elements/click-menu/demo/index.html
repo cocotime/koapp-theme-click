@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+    <title>click-menu demo</title>
+
+    <script src="../../../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../../../../bower_components/paper-styles/demo-pages.html">
+    <link rel="import" href="../../click-item/click-item.html">
+    <link rel="import" href="../click-menu.html">
+    <link rel="import" href="../click-submenu.html">
+
+    <style is="custom-style">
+      .horizontal-section {
+        padding: 0 !important;
+      }
+
+      .avatar {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: #ccc;
+      }
+
+      click-item {
+        --item: {
+          cursor: pointer;
+        };
+      }
+
+      .sublist click-item {
+        padding-left: 30px;
+      }
+
+      .sublist2 click-item {
+        padding-left: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="horizontal-section-container">
+      <div>
+        <h4>Standard</h4>
+        <div class="horizontal-section">
+          <click-menu>
+            <click-item>Inbox</click-item>
+            <click-item>Starred</click-item>
+            <click-item>Sent mail</click-item>
+            <click-item>Drafts</click-item>
+          </click-menu>
+        </div>
+      </div>
+
+      <div>
+        <h4>Pre-selected</h4>
+        <div class="horizontal-section">
+          <click-menu selected="0">
+            <click-item>Inbox</click-item>
+            <click-item disabled>Starred</click-item>
+            <click-item>Sent mail</click-item>
+            <click-item>Drafts</click-item>
+          </click-menu>
+        </div>
+      </div>
+
+      <div>
+        <h4>Multi-select</h4>
+        <div class="horizontal-section">
+          <click-menu multi>
+            <click-item>Bold</click-item>
+            <click-item>Italic</click-item>
+            <click-item>Underline</click-item>
+            <click-item>Strikethrough</click-item>
+          </click-menu>
+        </div>
+      </div>
+
+      <div>
+        <h4>Sub-menu</h4>
+        <div class="horizontal-section">
+          <click-menu attr-for-item-title="label" multi>
+            <click-submenu label="click-menu">
+              <click-item class="menu-trigger">click-menu</click-item>
+              <click-menu class="menu-content sublist" multi>
+                <click-submenu label="Properties">
+                  <click-item class="menu-trigger">Properties</click-item>
+                  <click-menu class="menu-content sublist2">
+                    <click-item>focusedItem</click-item>
+                    <click-item>attrForItemTitle</click-item>
+                  </click-menu>
+                </click-submenu>
+                <click-submenu label="Methods">
+                  <click-item class="menu-trigger">Methods</click-item>
+                  <click-menu class="menu-content sublist2">
+                    <click-item>select(value)</click-item>
+                  </click-menu>
+                </click-submenu>
+            </click-menu>
+          </click-submenu>
+
+          <click-submenu label="click-submenu">
+            <click-item class="menu-trigger">click-submenu</click-item>
+            <click-menu class="menu-content sublist">
+              <click-submenu label="Properties">
+                <click-item class="menu-trigger">Properties</click-item>
+                <click-menu class="menu-content sublist2">
+                  <click-item>opened</click-item>
+                </click-menu>
+                </click-submenu>
+                <click-submenu label="Methods">
+                  <click-item class="menu-trigger">Methods</click-item>
+                  <click-menu class="menu-content sublist2">
+                    <click-item>open()</click-item>
+                    <click-item>close()</click-item>
+                    <click-item>toggle()</click-item>
+                  </click-menu>
+              </click-submenu>
+            </click-menu>
+          </click-submenu>
+
+            <click-submenu label="Unavailable" disabled>
+              <click-item class="menu-trigger">Unavailable</click-item>
+              <click-menu class="menu-content sublist">
+                <click-item>Unavailable 1</click-item>
+                <click-item>Unavailable 2</click-item>
+              </click-menu>
+            </click-submenu>
+          </click-menu>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

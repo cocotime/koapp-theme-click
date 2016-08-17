@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+    <title>click-item demo</title>
+
+    <script src="../../../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../../../../bower_components/iron-icon/iron-icon.html">
+    <link rel="import" href="../../../../../bower_components/iron-icons/communication-icons.html">
+    <link rel="import" href="../../../../../bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="../../../../../bower_components/paper-styles/demo-pages.html">
+    <link rel="import" href="../../click-icon-button/click-icon-button.html">
+    <link rel="import" href="../click-item.html">
+    <link rel="import" href="../click-item-body.html">
+
+    <style is="custom-style">
+      div[role="listbox"] {
+        border: 1px solid #e5e5e5;
+      }
+
+      .avatar {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--paper-amber-500);
+      }
+
+      .blue {
+        background-color: var(--paper-light-blue-300);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>click-items are simple list elements, ideally used in an element with <i>role="listbox"</i></h3>
+      <div class="vertical-section">
+        <div role="listbox">
+          <click-item>Inbox</click-item>
+          <click-item>Starred</click-item>
+          <click-item>Sent mail</click-item>
+        </div>
+      </div>
+
+      <h3>They can be styled using custom properties</h3>
+      <div class="vertical-section">
+        <style is="custom-style">
+          click-item.fancy {
+            --item-focused: {
+              background: var(--paper-amber-500);
+              font-weight: bold;
+            };
+            --item-focused-before: {
+              opacity: 0;
+            };
+          }
+        </style>
+        <div role="listbox">
+          <click-item class="fancy">Inbox</click-item>
+          <click-item class="fancy">Starred</click-item>
+          <click-item class="fancy">Sent mail</click-item>
+        </div>
+      </div>
+
+      <h3>To add a leading element, use a click-item with an <i>item-icon</i> attribute. This
+      leading image can be an iron-icon, or any other regular element.</h3>
+      <div class="vertical-section">
+        <div role="listbox">
+          <click-item>
+            <iron-icon icon="inbox" item-icon></iron-icon>
+            Inbox
+          </click-item>
+          <click-item>
+            <iron-icon icon="star" item-icon></iron-icon>
+            Starred
+          </click-item>
+        </div>
+      </div>
+
+      <h3>For two-line or three-line items, use a click-item-body inside a click-item</h3>
+      <div class="vertical-section">
+        <div role="listbox">
+          <click-item>
+            <click-item-body two-line>
+              <div>Profile Photo</div>
+              <div secondary>Change your Google+ profile photo</div>
+            </click-item-body>
+          </click-item>
+          <click-item>
+            <click-item-body three-line>
+              <div>Ali Connors</div>
+              <div secondary>Brunch this weekend?</div>
+              <div secondary>I'll be in your neighborhood doing errands</div>
+            </click-item-body>
+          </click-item>
+          <click-item>
+            <iron-icon icon="communication:phone" item-icon></iron-icon>
+            <click-item-body two-line>
+              <div>(650) 555-1234</div>
+              <div secondary>Mobile</div>
+            </click-item-body>
+          </click-item>
+          <click-item>
+            <div class="avatar blue" item-icon></div>
+            <click-item-body two-line>
+              <div>Alphonso Engelking</div>
+              <div secondary>Change photo</div>
+            </click-item-body>
+          </click-item>
+        </div>
+      </div>
+
+      <h3>Complex layouts are usually a combination of all these elements</h3>
+      <div class="vertical-section">
+        <div role="listbox">
+          <click-item>
+            <div class="avatar blue" item-icon></div>
+            <click-item-body two-line>
+              <div>Photos</div>
+              <div secondary>Jan 9, 2014</div>
+            </click-item-body>
+            <click-icon-button icon="star" alt="favourite this!"></click-icon-button>
+          </click-item>
+          <click-item>
+            <div class="avatar" item-icon></div>
+            <click-item-body two-line>
+              <div>Recipes</div>
+              <div secondary>Jan 17, 2014</div>
+            </click-item-body>
+            <click-icon-button icon="star" alt="favourite this!"></click-icon-button>
+          </click-item>
+        </div>
+      </div>
+
+      <h3>click-items can be used as links</h3>
+      <div class="vertical-section">
+        <style is="custom-style">
+          .click-item-link {
+            color: inherit;
+            text-decoration: none;
+          }
+        </style>
+        <div role="listbox">
+          <a class="click-item-link" href="#inbox" tabindex="-1">
+            <click-item>Inbox</click-item>
+          </a>
+          <a class="click-item-link" href="#starred" tabindex="-1">
+            <click-item>Starred</click-item>
+          </a>
+          <a class="click-item-link" href="#sent" tabindex="-1">
+            <click-item>Sent mail</click-item>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
