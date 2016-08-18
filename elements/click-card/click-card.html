@@ -63,10 +63,17 @@
         border-top: 1px solid #e8e8e8;
         padding: 10px 15px;
         position: relative;
-        text-align: right;
+        overflow: hidden;
         @apply(--card-actions);
       }
       
+      :host ::content .card-actions click-button{
+        text-align: center;
+        display: block;
+        float: left;
+        width: 47%;
+      }
+
     </style>
 
     <!-- write your template here -->

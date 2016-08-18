@@ -18,7 +18,7 @@
     --dark-primary-color: #525252;
     --accent-color: #ef4949;
     --light-accent-color: #01f5fd;
-    --dark-accent-color: #01c4ca;
+    --dark-accent-color: #ef2b49;
     --error-color: #dd2c00;
 
     --background-color: #2f2f2f;
@@ -34,11 +34,33 @@
 
   .polymermenu .panel #header:not([style-scope]):not(.style-scope){
     background-color: var(--primary-background-color);
-    border-bottom: 1px solid var(--primar-text-color);
+    border-bottom: 3px solid var(--accent-color);
   }
 
-  .panel[drawer]{
-    box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.8);
+  .polymermenu .panel #header .logo{
+    margin: 10px auto;
+  }
+  
+  .polymermenu .panel #header img{
+    border-radius: 50%;
+  }
+
+  .polymermenu .panel #header .title{
+    text-transform: uppercase;
+    font-size: 14px;
+    margin: auto;
+  }
+  
+  .polymermenu .panel paper-item{
+    font-family: var(--primary-font-family);
+  }
+
+  .grouplist a.border{
+    border-radius: 3px;
+    border-color: var(--accent-color);
+    background: var(--accent-color);
+    color: var(--primary-text-color);
+    margin: 20px 20px 0;
   }
 
 </style>
