@@ -28,6 +28,10 @@
 
         @apply(--dropdown-menu);
       }
+      
+      :host([focused]) label{
+        display: none;
+      }
 
       :host([disabled]) {
         @apply(--dropdown-menu-disabled);
@@ -102,7 +106,16 @@
           notify: true,
           readOnly: true
         }
-      }
+      },
+      listeners: {
+        'click': 'onclickHandler'
+      },
+      onclickHandler: function(e) {
+        var changeDrop = this.$.menuButton;
+        var changed = changeDrop.getElementsByTagName('click-input');
+        changed[0].label = "";
+     } 
     });
+
   </script>
 </dom-module>

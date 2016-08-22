@@ -9,7 +9,10 @@
       :host {
         display: block;
         padding: 8px 0;
-
+        position: relative;
+        border: 1px solid var(--secondary-text-color);
+        border-radius: 3px;
+        transition: border .3s;
         @apply(--input-container);
       }
 
@@ -26,6 +29,7 @@
 
       .underline {
         position: relative;
+        display: none;
       }
 
       .focused-line {
@@ -70,10 +74,11 @@
       }
 
       ::content label {
-        color: var(--input-container-color, --secondary-text-color);
+        color: var(--input-container-color, --primary-text-color);
         font: inherit;
         width: 100%;
-
+        position: absolute;
+        left: 15px;
         @apply(--input-container-label);
       }
 
@@ -108,12 +113,12 @@
         box-shadow: none;
         color: var(--input-container-input-color, --primary-text-color);
         outline: none;
-        padding: 0;
+        padding: 0 15px;
         position: relative; /* to make a stacking context */
         text-align: inherit;
         width: 100%;
-        max-width: 100%;
-
+        max-width: 92%;
+        
         @apply(--input-container-input);
       }
 
@@ -176,10 +181,11 @@
   <script>
     Polymer({
       is: 'click-input-container',
-
       behaviors: [
         Polymer.KoaInputContainerBehavior
       ]
+
     });
+
   </script>
 </dom-module>

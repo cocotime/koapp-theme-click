@@ -12,10 +12,23 @@
       :host {
         display: block;
       }
+
+      :host.has-value label{
+        display: none;
+      }
+      
+      :host([focused]) label{
+        display: none;
+      }
+
+      :host([focused]) .input-container{
+        border: 1px solid var(--accent-color);
+      }
+
     </style>
 
     <!-- write your template here -->
-    <click-input-container auto-validate$="[[autoValidate]]" disabled$="[[disabled]]" invalid="[[invalid]]" class="input-container">
+    <click-input-container auto-validate$="[[autoValidate]]" disabled$="[[disabled]]" invalid="[[invalid]]" class="input-container" on-change="changeHandler">
       <label hidden$="[[!label]]">[[label]]</label>
 
       <iron-autogrow-textarea id="input"
@@ -51,7 +64,17 @@
 
       behaviors: [
         Polymer.KoaTextareaBehavior
-      ]
+      ],
+
+      changeHandler: function(event, detail, sender) { 
+        if(this.$.input.value != ''){
+          this.classList.add('has-value');
+        }
+        else{
+          this.classList.remove('has-value');
+        }
+      }
+
     });
   </script>
 </dom-module>
